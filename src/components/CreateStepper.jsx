@@ -1,16 +1,21 @@
 import React, { useContext } from "react";
 import { Button, Group, Card, Timeline } from "@mantine/core";
 import { StepperContext } from "../context/StepperContext";
+import { FiZap } from "react-icons/fi"
 import StepperChild from "./StepperChild";
+import Instructions from "./Card/Instruction.firstStep";
+
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
   return (
     <>
-      <Card withBorder shadow="md" radius="md">
+      <Card withBorder shadow="md" radius="md" style={{width:"635px"}}>
         <Timeline active={active} bulletSize={24} lineWidth={2}>
-          <Timeline.Item title="New branch">
-            <StepperChild id={0} title="first step">Hi mom</StepperChild>
+          <Timeline.Item title="Wizard Service" bullet={ <FiZap size={14} /> }>
+            <StepperChild id={0} title="first step" desc="You can read instruction in this step 📑">
+              <Instructions />
+            </StepperChild>
           </Timeline.Item>
 
           <Timeline.Item title="Commits">
