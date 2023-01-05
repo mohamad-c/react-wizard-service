@@ -1,9 +1,10 @@
 import './App.css'
+import CreateStepper from './components/CreateStepper'
 
 function App() {
   return (
     <div className="App">
-     Hello world
+     <CreateStepper />
     </div>
   )
 }
