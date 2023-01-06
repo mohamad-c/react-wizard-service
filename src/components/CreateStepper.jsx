@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Button, Group, Card, Timeline } from "@mantine/core";
 import { StepperContext } from "../context/StepperContext";
-import { FiZap } from "react-icons/fi"
+import { FiZap, FiUser } from "react-icons/fi"
 import StepperChild from "./StepperChild";
 import Instructions from "./Card/Instruction.firstStep";
 
@@ -18,7 +18,7 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item title="Commits">
+          <Timeline.Item title="Commits" bullet={ <FiUser size={14} /> }>
             <StepperChild id={1} title="second step">Hi mom</StepperChild>
           </Timeline.Item>
 
