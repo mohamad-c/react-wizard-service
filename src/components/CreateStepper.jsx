@@ -4,10 +4,12 @@ import { StepperContext } from "../context/StepperContext";
 import { FiZap, FiUser } from "react-icons/fi"
 import StepperChild from "./StepperChild";
 import Instructions from "./Card/Instruction.firstStep";
+import UserForm from "./Card/UserForm.secondStep";
 
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
+  
   return (
     <>
       <Card withBorder shadow="md" radius="md" style={{width:"635px"}}>
@@ -19,7 +21,9 @@ const CreateStepper = () => {
           </Timeline.Item>
 
           <Timeline.Item title="Commits" bullet={ <FiUser size={14} /> }>
-            <StepperChild id={1} title="second step">Hi mom</StepperChild>
+            <StepperChild id={1} title="second step" desc="You must enter your identity here 🧬">
+              <UserForm />
+            </StepperChild>
           </Timeline.Item>
 
           <Timeline.Item title="Pull request" lineVariant="dashed">
