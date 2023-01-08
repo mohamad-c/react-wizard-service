@@ -1,12 +1,13 @@
 import { Button } from "@mantine/core";
-import React from "react";
+import React, { useContext } from "react";
+import { ReqContext } from "../../context/ReqContext";
 import InputText from "../InputText";
 
 
 
 const UserForm = () => {
-  const model = { firstName: "", lastName: "", phoneNumber:0 , email: "" };
- 
+  const model = { firstName: "", lastName: "", phoneNumber:"" , email: "" };
+  const { addUserMutation } = useContext(ReqContext);
   return (
     <>
       <form>
@@ -14,7 +15,7 @@ const UserForm = () => {
         <InputText id="lastName" model={model} title="Last name" type="text" />
         <InputText id="phoneNumber" model={model} title="Phone number" type="number" />
         <InputText id="email" model={model} title="Email address" type="email" />
-        <Button mt={10} variant="outline" style={{width:"100%"}}>Submit 💎</Button>
+        <Button mt={10} variant="outline" style={{width:"100%"}} onClick={()=>addUserMutation.mutate(model)}>Submit 💎</Button>
       </form>
     </>
   );

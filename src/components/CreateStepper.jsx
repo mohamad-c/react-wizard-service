@@ -20,7 +20,7 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item title="Commits" bullet={ <FiUser size={14} /> }>
+          <Timeline.Item title="Profile" bullet={ <FiUser size={14} /> }>
             <StepperChild id={1} title="second step" desc="You must enter your identity here 🧬">
               <UserForm />
             </StepperChild>
