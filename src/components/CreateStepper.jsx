@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Button, Group, Card, Timeline } from "@mantine/core";
 import { StepperContext } from "../context/StepperContext";
-import { FiZap, FiUser } from "react-icons/fi"
+import { FiZap, FiUser, FiBox } from "react-icons/fi"
 import StepperChild from "./StepperChild";
 import Instructions from "./Card/Instruction.firstStep";
 import UserForm from "./Card/UserForm.secondStep";
+import Services from "./Card/Services.thirdStep";
 
 
 const CreateStepper = () => {
@@ -26,8 +27,10 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item title="Pull request" lineVariant="dashed">
-            <StepperChild id={2} title="third step">Hi mom</StepperChild>
+          <Timeline.Item title="Services" lineVariant="dashed" bullet={ <FiBox size={14} /> }>
+            <StepperChild id={2} title="third step" desc="You can choose your services from here 🎀">
+              <Services />
+            </StepperChild>
           </Timeline.Item>
 
           <Timeline.Item title="Code review">
