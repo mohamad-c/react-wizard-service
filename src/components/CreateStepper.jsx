@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import { Button, Group, Card, Timeline } from "@mantine/core";
 import { StepperContext } from "../context/StepperContext";
-import { FiZap } from "react-icons/fi"
+import { FiZap, FiUser } from "react-icons/fi"
 import StepperChild from "./StepperChild";
 import Instructions from "./Card/Instruction.firstStep";
+import UserForm from "./Card/UserForm.secondStep";
 
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
+  
   return (
     <>
       <Card withBorder shadow="md" radius="md" style={{width:"635px"}}>
@@ -18,8 +20,10 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item title="Commits">
-            <StepperChild id={1} title="second step">Hi mom</StepperChild>
+          <Timeline.Item title="Profile" bullet={ <FiUser size={14} /> }>
+            <StepperChild id={1} title="second step" desc="You must enter your identity here 🧬">
+              <UserForm />
+            </StepperChild>
           </Timeline.Item>
 
           <Timeline.Item title="Pull request" lineVariant="dashed">
