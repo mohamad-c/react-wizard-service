@@ -1,5 +1,6 @@
 import "./App.css";
 import CreateStepper from "./components/CreateStepper";
+import FormValidationProvider from "./context/FormValidationContext";
 import ReqProvider from "./context/ReqContext";
 import StepperChildProvider from "./context/StepperContext";
 
@@ -8,7 +9,9 @@ function App() {
     <div className="App">
       <StepperChildProvider>
         <ReqProvider>
-          <CreateStepper />
+          <FormValidationProvider>
+            <CreateStepper />
+          </FormValidationProvider>
         </ReqProvider>
       </StepperChildProvider>
     </div>
