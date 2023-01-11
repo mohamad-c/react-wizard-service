@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { ScrollArea } from "@mantine/core";
+import ServicesCard from "../ServicesCard";
 
 const Services = () => {
   return (
-    <div>Services</div>
-  )
-}
+    <ScrollArea style={{ height: 420 }}>
+      <ServicesCard />
+    </ScrollArea>
+  );
+};
 
-export default Services
+export default Services;
