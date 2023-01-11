@@ -3,7 +3,6 @@ import { createContext } from "react";
 import { addUser } from "../api";
 import { showNotification, updateNotification } from "@mantine/notifications";
 
-
 export const ReqContext = createContext();
 
 const ReqProvider = ({ children }) =>{
@@ -40,6 +39,7 @@ const ReqProvider = ({ children }) =>{
       });
     }
   })
+
   return(
     <ReqContext.Provider value={{addUserMutation}}> 
       {children}
