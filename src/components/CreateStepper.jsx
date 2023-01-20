@@ -24,7 +24,11 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item title="Profile" bullet={<FiUser size={14} />}>
+          <Timeline.Item
+            title="Profile"
+            bullet={<FiUser size={14} />}
+            lineVariant="dashed"
+          >
             <StepperChild
               id={1}
               title="second step"
@@ -34,11 +38,7 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item
-            title="Services"
-            lineVariant="dashed"
-            bullet={<FiBox size={14} />}
-          >
+          <Timeline.Item title="Services" bullet={<FiBox size={14} />}>
             <StepperChild
               id={2}
               title="third step"

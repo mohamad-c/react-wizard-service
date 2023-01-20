@@ -1,13 +1,14 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createContext } from "react";
-import { addUser } from "../api";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { createContext, useState } from "react";
+import { addUser, getServices } from "../api";
 import { showNotification, updateNotification } from "@mantine/notifications";
-
 
 export const ReqContext = createContext();
 
-const ReqProvider = ({ children }) =>{
+const ReqProvider = ({ children }) => {
   const client = useQueryClient();
+
+  const { data: servicesData } = useQuery(["services"], () => getServices());
 
   const addUserMutation = useMutation(addUser, {
     onMutate: () => {
@@ -38,13 +39,33 @@ const ReqProvider = ({ children }) =>{
         message: error.message,
         autoClose: 2000,
       });
+    },
+  });
+  // add a service to cart
+  const [checked, setChecked] = useState([]);
+
+  const checkService = (serviceBool, id) =>{
+    let temp = [...checked]
+    let obj = servicesData.find((val)=> val.id === id)
+    console.log(obj.price)
+    // add to cart array
+    if(serviceBool === true){
+      console.log("Service is selected", id)
+      temp = [...checked, obj.price]
+    // delete from cart array
+    }else{
+      temp.splice(checked.indexOf(obj.price), 1)
+      console.log(temp);
+      console.log("service is not selected");
     }
-  })
-  return(
-    <ReqContext.Provider value={{addUserMutation}}> 
+    setChecked(temp)
+  }
+
+  return (
+    <ReqContext.Provider value={{ addUserMutation, servicesData, checkService, checked }}>
       {children}
     </ReqContext.Provider>
-  )
-}
+  );
+};
 
 export default ReqProvider;

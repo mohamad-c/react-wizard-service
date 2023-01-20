@@ -1,4 +1,47 @@
 {
-  "user": [
+  "user": [],
+  "services": [
+    {
+      "id": 1,
+      "title": "Web Design",
+      "desc": "With freelance web designers across the globe competing on your project, you'll receive heaps of websites ideas - you just need to choose the best.",
+      "price": 149.99
+    },
+    {
+      "id": 2,
+      "title": "Wordpress Design",
+      "desc": "With freelance Wordpress theme designers across the globe competing on your project, you'll receive heaps of Wordpress themes ideas - you just need to choose the best.",
+      "price": 89.99
+    },
+    {
+      "id": 3,
+      "title": "App Design",
+      "desc": "With freelance app designers across the globe competing on your project, you'll receive heaps of apps ideas - you just need to choose the best.",
+      "price": 169.99
+    },
+    {
+      "id": 4,
+      "title": "Banner Ad Design",
+      "desc": "With freelance banner ad designers across the globe competing on your project, you'll receive heaps of banner ads ideas - you just need to choose the best.",
+      "price": 79.99
+    },
+    {
+      "id": 5,
+      "title": "Icon Design",
+      "desc": "With freelance icon designers across the globe competing on your project, you'll receive heaps of icons ideas - you just need to choose the best.",
+      "price": 59.99
+    },
+    {
+      "id": 6,
+      "title": "Newsletter Dedign",
+      "desc": "With freelance newsletter designers across the globe competing on your project, you'll receive heaps of newsletters ideas - you just need to choose the best.",
+      "price": 119.99
+    },
+    {
+      "id": 7,
+      "title": "Wix Design",
+      "desc": "With freelance Wix theme designers across the globe competing on your project, you'll receive heaps of Wix themes ideas - you just need to choose the best.",
+      "price": 129.99
+    }
   ]
 }
