@@ -15,7 +15,6 @@ const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
   const { serviceSum, checked } = useContext(ReqContext);
   const sum = serviceSum !== null ? serviceSum.toFixed(2) : "";
-  const { active, nextStep, prevStep } = useContext(StepperContext);
   const isTrue = active === 1;
   const { data, isLoading } = useQuery(["user"], getUser, { enabled: isTrue });
 
@@ -33,13 +32,7 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
 
-          <Timeline.Item
-            title="Profile"
-            bullet={<FiUser size={14} />}
-            lineVariant="dashed"
-          >
-
-          <Timeline.Item title="Profile" bullet={<FiUser size={14} />}>
+          <Timeline.Item title="Profile" bullet={<FiUser size={14} />} lineVariant="dashed">
 
             <StepperChild
               id={1}
@@ -49,6 +42,7 @@ const CreateStepper = () => {
               <UserForm />
             </StepperChild>
           </Timeline.Item>
+
           <Timeline.Item title="Services" bullet={<FiBox size={14} />}>
             <StepperChild
               id={2}
@@ -56,11 +50,9 @@ const CreateStepper = () => {
               desc="You can choose your services from here 🎀"
             >
               <Services />
-          <Timeline.Item title="Pull request" lineVariant="dashed">
-            <StepperChild id={2} title="third step">
-              Hi mom
             </StepperChild>
           </Timeline.Item>
+         
 
           <Timeline.Item title="Code review">
             <StepperChild id={3} title="third step">
