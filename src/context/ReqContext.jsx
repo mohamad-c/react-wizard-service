@@ -43,26 +43,27 @@ const ReqProvider = ({ children }) => {
   });
   // add a service to cart
   const [checked, setChecked] = useState([]);
-
-  const checkService = (serviceBool, id) =>{
+  const [checkedStatus, setCheckedcheckedStatus] = useState([]);
+  console.log(checked)
+  const checkService = (id, serviceBool) =>{
     let temp = [...checked]
     let obj = servicesData.find((val)=> val.id === id)
-    console.log(obj.price)
     // add to cart array
     if(serviceBool === true){
-      console.log("Service is selected", id)
       temp = [...checked, obj.price]
     // delete from cart array
     }else{
       temp.splice(checked.indexOf(obj.price), 1)
-      console.log(temp);
-      console.log("service is not selected");
     }
     setChecked(temp)
   }
-
+  
+  
+  
+  const serviceSum = checked.length !== 0 ? checked.reduce((acc, prev)=>acc + prev) : null;
+  
   return (
-    <ReqContext.Provider value={{ addUserMutation, servicesData, checkService, checked }}>
+    <ReqContext.Provider value={{ addUserMutation, servicesData, checkService, checked, serviceSum, checkedStatus, setCheckedcheckedStatus }}>
       {children}
     </ReqContext.Provider>
   );

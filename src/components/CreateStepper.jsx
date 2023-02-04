@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
-import { Button, Group, Card, Timeline, ScrollArea } from "@mantine/core";
+import { Button, Group, Card, Timeline, Divider, Text } from "@mantine/core";
 import { StepperContext } from "../context/StepperContext";
 import { FiZap, FiUser, FiBox } from "react-icons/fi";
 import StepperChild from "./StepperChild";
 import Instructions from "./Card/Instruction.firstStep";
 import UserForm from "./Card/UserForm.secondStep";
 import Services from "./Card/Services.thirdStep";
+import { ReqContext } from "../context/ReqContext";
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
+  const { serviceSum, checked } = useContext(ReqContext);
+  const sum = serviceSum !== null ? serviceSum.toFixed(2) : "";
 
   return (
     <>
@@ -54,19 +57,44 @@ const CreateStepper = () => {
             </StepperChild>
           </Timeline.Item>
         </Timeline>
-
-        <Group position="right" mt="xl">
-          <Button
-            variant="outline"
-            color="red"
-            disabled={active === 0 ? true : false}
-            onClick={prevStep}
-          >
-            Back
-          </Button>
-          <Button variant="outline" color="teal" onClick={nextStep}>
-            {active === 3 ? <p>Checkout & Buy</p> : <p>Next step</p>}
-          </Button>
+        <Divider my={15} />
+        <Group position="apart" mt="xl">
+          {checked.length !== 0 ? (
+            <Group spacing="xs" style={{ gap: "0px" }}>
+              <Text fz="xl" fw={700} c="teal">
+                {sum}
+              </Text>
+              <Text pr={200} fz="xs" c="dimmed">
+                /USD
+              </Text>
+            </Group>
+          ) : (
+            <div></div>
+          )}
+          
+          <Group>
+            <Button
+              variant="outline"
+              color="red"
+              disabled={active === 0 ? true : false}
+              onClick={(e) => {
+                e.preventDefault();
+                prevStep();
+              }}
+            >
+              Back
+            </Button>
+            <Button
+              variant="outline"
+              color="teal"
+              onClick={(e) => {
+                e.preventDefault();
+                nextStep();
+              }}
+            >
+              {active === 3 ? <p>Checkout & Buy</p> : <p>Next step</p>}
+            </Button>
+          </Group>
         </Group>
       </Card>
     </>
