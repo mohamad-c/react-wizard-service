@@ -40,7 +40,7 @@ const FormValidationProvider = ({ children }) => {
     validate,
     onSubmit: (values) => {
       addUserMutation.mutate(values);
-      formik.resetForm()
+      formik.resetForm();
     },
   });
   return (
