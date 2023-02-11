@@ -7,9 +7,10 @@ import Instructions from "./Card/Instruction.firstStep";
 import UserForm from "./Card/UserForm.secondStep";
 import Services from "./Card/Services.thirdStep";
 import { ReqContext } from "../context/ReqContext";
-import { addServiceToCart, deleteServiceFromCart, getCartServices, getUser } from "../api";
+import { addServiceToCart, deleteServiceFromCart, getUser } from "../api";
 import { useQuery } from "@tanstack/react-query";
 import cart from "../../db.json"
+import CheckoutCard from "./Card/CheckoutCard.fourthStep";
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
@@ -17,7 +18,6 @@ const CreateStepper = () => {
   const sum = serviceSum !== null ? serviceSum.toFixed(2) : "";
   const isTrue = active === 1;
   const { data, isLoading } = useQuery(["user"], getUser, { enabled: isTrue });
-  let { data: cartServices } = useQuery(["cart"], getCartServices);
 
   return (
     <>
@@ -66,7 +66,7 @@ const CreateStepper = () => {
               title="third step"
               desc="You can pay for your services here 💵"
             >
-              Hi mom
+              <CheckoutCard />
             </StepperChild>
           </Timeline.Item>
         </Timeline>
@@ -104,7 +104,7 @@ const CreateStepper = () => {
               onClick={(e) => {
                 // e.preventDefault();
 
-                active === 2 ? addServiceToCart({id:0, cart:chosenService}) : <></>
+                active === 2 ? addServiceToCart({id:0, cartData:chosenService}) : <></>
                 nextStep();
               }}
               disabled={active === 1 ? (data?.length === 0 ? true : false) : ""}
