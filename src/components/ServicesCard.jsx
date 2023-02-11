@@ -6,6 +6,7 @@ import "../App.css";
 const ServicesCard = ({ title, desc, price, id, checkedServices, checkedServicesFunc }) => {
   const { checkService, servicesData, chosenService } = useContext(ReqContext);
   
+  
   return (
     <Paper
       my={20}

@@ -11,6 +11,7 @@ import { addServiceToCart, deleteServiceFromCart, getUser } from "../api";
 import { useQuery } from "@tanstack/react-query";
 import cart from "../../db.json"
 import CheckoutCard from "./Card/CheckoutCard.fourthStep";
+import { showNotification } from "@mantine/notifications";
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
@@ -103,7 +104,12 @@ const CreateStepper = () => {
               color="teal"
               onClick={(e) => {
                 // e.preventDefault();
-
+                active === 3 ?
+                showNotification({
+                  title: 'Success',
+                  message: 'You purchased your services 🥳',
+                }) 
+                : null
                 active === 2 ? addServiceToCart({id:0, cartData:chosenService}) : <></>
                 nextStep();
               }}

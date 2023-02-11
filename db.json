@@ -15,31 +15,7 @@
       "id": 2
     }
   ],
-  "selectedServices": [
-    {
-      "id": 1,
-      "cartData": [
-        {
-          "id": 3,
-          "title": "App Design",
-          "desc": "With freelance app designers across the globe competing on your project, you'll receive heaps of apps ideas - you just need to choose the best.",
-          "price": 169.99
-        },
-        {
-          "id": 4,
-          "title": "Banner Ad Design",
-          "desc": "With freelance banner ad designers across the globe competing on your project, you'll receive heaps of banner ads ideas - you just need to choose the best.",
-          "price": 79.99
-        },
-        {
-          "id": 6,
-          "title": "Newsletter Dedign",
-          "desc": "With freelance newsletter designers across the globe competing on your project, you'll receive heaps of newsletters ideas - you just need to choose the best.",
-          "price": 119.99
-        }
-      ]
-    }
-  ],
+  "selectedServices": [],
   "services": [
     {
       "id": 1,
