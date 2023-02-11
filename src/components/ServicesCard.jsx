@@ -1,11 +1,12 @@
 import { Checkbox, Group, Paper, Stack, Text } from "@mantine/core";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ReqContext } from "../context/ReqContext";
 import "../App.css";
 
 const ServicesCard = ({ title, desc, price, id, checkedServices, checkedServicesFunc }) => {
-  const { checkService } = useContext(ReqContext);
-
+  const { checkService, servicesData, chosenService } = useContext(ReqContext);
+  
+  
   return (
     <Paper
       my={20}

@@ -1,5 +1,21 @@
 {
-  "user": [],
+  "user": [
+    {
+      "firstName": "MOHAMAD",
+      "lastName": "luo",
+      "phoneNumber": 9351854880,
+      "email": "myarali1345@gmail.com",
+      "id": 1
+    },
+    {
+      "firstName": "MOHAMAD",
+      "lastName": "luo",
+      "phoneNumber": 9351854880,
+      "email": "myarali1345@gmail.com",
+      "id": 2
+    }
+  ],
+  "selectedServices": [],
   "services": [
     {
       "id": 1,
