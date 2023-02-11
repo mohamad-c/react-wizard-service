@@ -7,15 +7,17 @@ import Instructions from "./Card/Instruction.firstStep";
 import UserForm from "./Card/UserForm.secondStep";
 import Services from "./Card/Services.thirdStep";
 import { ReqContext } from "../context/ReqContext";
-import { getUser } from "../api";
+import { addServiceToCart, deleteServiceFromCart, getCartServices, getUser } from "../api";
 import { useQuery } from "@tanstack/react-query";
+import cart from "../../db.json"
 
 const CreateStepper = () => {
   const { active, nextStep, prevStep } = useContext(StepperContext);
-  const { serviceSum, checked } = useContext(ReqContext);
+  const { serviceSum, checked, chosenService } = useContext(ReqContext);
   const sum = serviceSum !== null ? serviceSum.toFixed(2) : "";
   const isTrue = active === 1;
   const { data, isLoading } = useQuery(["user"], getUser, { enabled: isTrue });
+  let { data: cartServices } = useQuery(["cart"], getCartServices);
 
   return (
     <>
@@ -91,6 +93,7 @@ const CreateStepper = () => {
               onClick={(e) => {
                 e.preventDefault();
                 prevStep();
+                active === 3 ? deleteServiceFromCart() : null
               }}
             >
               Back
@@ -99,7 +102,9 @@ const CreateStepper = () => {
               variant="outline"
               color="teal"
               onClick={(e) => {
-                e.preventDefault();
+                // e.preventDefault();
+
+                active === 2 ? addServiceToCart({id:0, cart:chosenService}) : <></>
                 nextStep();
               }}
               disabled={active === 1 ? (data?.length === 0 ? true : false) : ""}

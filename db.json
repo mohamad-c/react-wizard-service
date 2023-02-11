@@ -6,9 +6,40 @@
       "phoneNumber": 9351854880,
       "email": "myarali1345@gmail.com",
       "id": 1
+    },
+    {
+      "firstName": "MOHAMAD",
+      "lastName": "luo",
+      "phoneNumber": 9351854880,
+      "email": "myarali1345@gmail.com",
+      "id": 2
     }
   ],
-  "selectedServices":[],
+  "selectedServices": [
+    {
+      "id": 1,
+      "cart": [
+        {
+          "id": 3,
+          "title": "App Design",
+          "desc": "With freelance app designers across the globe competing on your project, you'll receive heaps of apps ideas - you just need to choose the best.",
+          "price": 169.99
+        },
+        {
+          "id": 1,
+          "title": "Web Design",
+          "desc": "With freelance web designers across the globe competing on your project, you'll receive heaps of websites ideas - you just need to choose the best.",
+          "price": 149.99
+        },
+        {
+          "id": 4,
+          "title": "Banner Ad Design",
+          "desc": "With freelance banner ad designers across the globe competing on your project, you'll receive heaps of banner ads ideas - you just need to choose the best.",
+          "price": 79.99
+        }
+      ]
+    }
+  ],
   "services": [
     {
       "id": 1,
