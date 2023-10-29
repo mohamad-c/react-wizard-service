@@ -11,7 +11,7 @@ Run React project with
 Start JSON Server
 <code>json-server --watch db.json</code>
 <br />
-visit https://classy-truffle-1bbe44.netlify.app/
+visit project: https://classy-truffle-1bbe44.netlify.app/
 
 <h2>About</h2>
 You can purchase your services from this wizard app <br />
